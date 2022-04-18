@@ -16,7 +16,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpvReserved)
 			PIMAGE_DOS_HEADER DOS = (PIMAGE_DOS_HEADER)hMod;
 			PIMAGE_NT_HEADERS NT = (PIMAGE_NT_HEADERS) ((PBYTE) hMod + DOS->e_lfanew);
 			PIMAGE_IMPORT_DESCRIPTOR IMPORT = (PIMAGE_IMPORT_DESCRIPTOR)((PBYTE)hMod + NT->OptionalHeader.DataDirectory[1].VirtualAddress);
-			FILE *file = fopen("C:\\Users\\dltmd\\Desktop\\coding\\iat\\data.txt", "w");
+			FILE *file = fopen("saveFile Path", "w");
 			
 			while(IMPORT->FirstThunk) {
 				char *mod = (char *) (PBYTE)hMod + IMPORT->Name;
